@@ -3,29 +3,31 @@ if (Meteor.isClient) {
   Meteor.subscribe("articles");
 
 
-  bonusMode = {
-    mode: 'normal',
+  appName = {
+    mode: 'initial value',
+    dep: new Deps.Dependency,   //save dependent computations here
     get: function () {
       return this.mode;
     },
-    set: function (newValue){
+    set: function (newValue) {
       this.mode = newValue;
+      
       return this.mode;
     }
   };
 
   Deps.autorun(function (){
-    console.log('bonusMode is now:', bonusMode.get());
+    console.log('appName is now:', appName.get());
   });
 
   handle = Deps.autorun(function (){
-    console.log(bonusMode.get(), 'is your mode. (play with my handle)');
+    console.log(appName.get(), 'is the app name');
   });
 
 
   Template.navBrand.title = function () {
     console.log('template helper ran.');
-    return "You are in " + bonusMode.get() + " mode.";
+    return "Current: " + appName.get();
   };
 
 
@@ -48,6 +50,13 @@ if (Meteor.isClient) {
     }
   });
 
+
+  Template.about.events({
+    'click .btnOnAmout': function () {  
+      console.log("test");
+      appName.set("Test 123");
+    }
+  });
 
 
 
