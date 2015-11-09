@@ -1,5 +1,13 @@
 if (Meteor.isClient) {
-  
+   Template.navItems.helpers({
+    activeIfTemplateIs: function (template) {
+      var currentRoute = Router.current();
+      //console.log("test " + currentRoute.lookupTemplate());
+      return currentRoute &&
+        template === currentRoute.lookupTemplate().toLowerCase() ? 'active' : '';
+    }
+  });
+
 }
 
 Articles = new Meteor.Collection('articles');
@@ -23,6 +31,12 @@ if (Meteor.isServer) {
 
   });
 }
+
+
+ Router.configure({
+   layoutTemplate: 'layout'  //can be any template name
+ });
+
 
 
 Router.map(function () {
