@@ -2,7 +2,34 @@ if (Meteor.isClient) {
 
   Meteor.subscribe("articles");
 
-   Template.navItems.helpers({
+
+  bonusMode = {
+    mode: 'normal',
+    get: function () {
+      return this.mode;
+    },
+    set: function (newValue){
+      this.mode = newValue;
+      return this.mode;
+    }
+  };
+
+  Deps.autorun(function (){
+    console.log('bonusMode is now:', bonusMode.get());
+  });
+
+  handle = Deps.autorun(function (){
+    console.log(bonusMode.get(), 'is your mode. (play with my handle)');
+  });
+
+
+  Template.navBrand.title = function () {
+    console.log('template helper ran.');
+    return "You are in " + bonusMode.get() + " mode.";
+  };
+
+
+  Template.navItems.helpers({
     activeIfTemplateIs: function (template) {
       var currentRoute = Router.current();
       //console.log("test " + currentRoute.lookupTemplate());
@@ -10,6 +37,7 @@ if (Meteor.isClient) {
         template ===  currentRoute.route.getName()  ? 'active' : '';
     }
   });
+
 
    //make sure you are in the `if (Meteor.isClient)` block
   Template.articles.helpers({
@@ -19,6 +47,8 @@ if (Meteor.isClient) {
         this._id === currentRoute.params._id ? 'selected' : '';
     }
   });
+
+
 
 
 }
