@@ -7,11 +7,12 @@ if (Meteor.isClient) {
     mode: 'initial value',
     dep: new Deps.Dependency,   //save dependent computations here
     get: function () {
+      this.dep.depend();
       return this.mode;
     },
     set: function (newValue) {
       this.mode = newValue;
-      
+      this.dep.changed();
       return this.mode;
     }
   };
