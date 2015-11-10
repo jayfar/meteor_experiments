@@ -36,3 +36,13 @@
         template ===  currentRoute.route.getName()  ? 'active' : '';
     }
   });
+
+
+Template.navItems.rendered = function ()
+{
+    $(document).ready(function(){
+      console.log('ready');
+      //$('[data-toggle="tooltip"]').tooltip();
+      $('.has-tooltip').tooltip();
+    });
+}

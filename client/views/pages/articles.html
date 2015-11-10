@@ -2,11 +2,14 @@
   <div class='row'>
     <div class="col-sm-4">
       <h2>Articles</h2>
+      <button class="btn btn-default addNewArticle">Add</button>
       <ul>
         {{#each articleList}}
-           <li class="{{ maybeSelected }}"> <!-- Add "selected" class (if selected) -->
-			  <a href="{{ pathFor 'article' }}"> {{title}} </a>
-		   </li>
+          <li class="{{ maybeSelected }}"> <!-- Add "selected" class (if selected) -->   
+            <span class="glyphicon glyphicon-remove deleteArticle"></span>
+            <span class="glyphicon glyphicon-open editArticle"></span>
+            <a href="{{ pathFor 'article' }}"> {{title}} </a>
+		      </li>
         {{/each}}
       </ul>
     </div>

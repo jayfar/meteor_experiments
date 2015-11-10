@@ -1,11 +1,11 @@
 <template name='navItems'>
-  <li class="{{ activeIfTemplateIs 'articles' }}">
+  <li class="{{ activeIfTemplateIs 'articles' }} has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Example using AutoForms to view, add and edit data.">
     <a href="{{ pathFor 'articles'}}">Articles</a>
   </li>
-  <li class="{{ activeIfTemplateIs 'form' }}">
+  <li class="{{ activeIfTemplateIs 'form' }} has-tooltip">
     <a href="{{pathFor 'form'}}">Form</a>
   </li>
-  <li class="{{ activeIfTemplateIs 'about' }}">
+  <li class="{{ activeIfTemplateIs 'about' }} has-tooltip">
     <a href="{{pathFor 'about'}}">About</a>
   </li>
 </template>
