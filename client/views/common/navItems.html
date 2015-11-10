@@ -5,6 +5,9 @@
   <li class="{{ activeIfTemplateIs 'contact' }} has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Example using AutoForms to submit data to server, but not to a database">
     <a href="{{ pathFor 'contactForm'}}">Contact</a>
   </li>
+  <li class="{{ activeIfTemplateIs 'uploadfs' }} has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Example file upload to the File System">
+    <a href="{{pathFor 'uploadfs'}}">Upload to FS</a>
+  </li>
   <li class="{{ activeIfTemplateIs 'form' }} has-tooltip">
     <a href="{{pathFor 'form'}}">Form</a>
   </li>
