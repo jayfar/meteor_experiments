@@ -41,6 +41,9 @@
   <li class="{{ activeIfTemplateIs 'articles' }}">
     <a href="{{ pathFor 'articles'}}">Articles</a>
   </li>
+  <li class="{{ activeIfTemplateIs 'form' }}">
+    <a href="{{pathFor 'form'}}">Form</a>
+  </li>
   <li class="{{ activeIfTemplateIs 'about' }}">
     <a href="{{pathFor 'about'}}">About</a>
   </li>
@@ -59,6 +62,10 @@
   <h2>Home</h2>
   <p>You are on the home screen.</p>
   
+</template>
+
+<template name="form">
+  {{> quickForm collection="Books" id="insertBookForm" type="insert"}}
 </template>
 
 <template name = 'about'>

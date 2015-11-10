@@ -24,3 +24,7 @@ mrt:bootstrap-3
 accounts-ui
 accounts-password
 random
+aldeed:autoform
+aldeed:simple-schema
+aldeed:collection2
+robertlowe:autoform-pickadate

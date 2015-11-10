@@ -122,6 +122,7 @@ Router.map(function () {
     path: '/',
   });
   this.route('about');
+  this.route('form');
   this.route('articles', {
     // articles now under `articleList` instead of `this`
     data: {
