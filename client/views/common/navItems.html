@@ -1,0 +1,11 @@
+<template name='navItems'>
+  <li class="{{ activeIfTemplateIs 'articles' }}">
+    <a href="{{ pathFor 'articles'}}">Articles</a>
+  </li>
+  <li class="{{ activeIfTemplateIs 'form' }}">
+    <a href="{{pathFor 'form'}}">Form</a>
+  </li>
+  <li class="{{ activeIfTemplateIs 'about' }}">
+    <a href="{{pathFor 'about'}}">About</a>
+  </li>
+</template>
