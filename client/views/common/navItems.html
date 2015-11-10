@@ -2,6 +2,9 @@
   <li class="{{ activeIfTemplateIs 'articles' }} has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Example using AutoForms to view, add and edit data.">
     <a href="{{ pathFor 'articles'}}">Articles</a>
   </li>
+  <li class="{{ activeIfTemplateIs 'contact' }} has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Example using AutoForms to submit data to server, but not to a database">
+    <a href="{{ pathFor 'contactForm'}}">Contact</a>
+  </li>
   <li class="{{ activeIfTemplateIs 'form' }} has-tooltip">
     <a href="{{pathFor 'form'}}">Form</a>
   </li>

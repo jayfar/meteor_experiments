@@ -28,3 +28,5 @@ aldeed:autoform
 aldeed:simple-schema
 aldeed:collection2
 robertlowe:autoform-pickadate
+check
+reactive-var
