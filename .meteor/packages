@@ -30,5 +30,5 @@ aldeed:collection2
 robertlowe:autoform-pickadate
 check
 reactive-var
-dbarrett:dropzonejs
-tomi:upload-server
+cfs:standard-packages
+cfs:filesystem
