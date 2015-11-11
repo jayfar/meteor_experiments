@@ -1,3 +1,36 @@
+Meteor.subscribe("articles");
+
+////////////////////////
+// Routing - Article Related
+Router.map(function () {
+  
+	this.route('articleAddEdit', {
+     	path: "/articleAddEdit",
+    	template: "articleForm"
+  	});
+
+	this.route('articles', {
+		data: {
+			articleList: function () {return Articles.find()},
+			selectedArticle: {}
+		},
+		template: 'articles'  
+	});
+
+	this.route('article', {
+		path: '/article/:_id',
+		// provide data for both `articleList` and `selectedArticle`
+		data: function () {
+			return {
+				articleList: Articles.find(),
+		    	selectedArticle: Articles.findOne({_id: this.params._id})
+		  	}
+		},
+		template: 'articles'  //change template target
+	});
+});
+
+
 ////////////////////////
 // articles (List)
 
@@ -6,7 +39,11 @@ Template.articles.helpers({
 	  var currentRoute = Router.current();
 	  return currentRoute &&
 	    this._id === currentRoute.params._id ? 'selected' : '';
-	}
+	},
+	// articleList: function() {
+	// 	return Articles.find();
+	// },
+	
 });
 
 
