@@ -7,14 +7,14 @@ Template.uploadfs.rendered = function() {
     addRemoveLinks : false,
     maxFilesize: 7,
     accept: function(file, done) {
-      FS.Utility.eachFile(event, function(file) {
+      //FS.Utility.eachFile(event, function(file) {
         //MyCollection.insert(file);
         // This Images
         Images.insert(file, function (err, fileObj) {
           //Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
           console.log("Error: " + err);
         });
-      });
+      //});
       done();
     }
   });
