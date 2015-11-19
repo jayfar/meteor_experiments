@@ -6,6 +6,7 @@
 	    	this.intervals.push(setInterval.apply(null, arguments));
 	  	},
 	  	componentWillUnmount: function() {
+	  		console.log("Tick Tock mixin componentWillUnmount " + this.props.name);
 	    	this.intervals.map(clearInterval);
 	  	}
 	};
@@ -16,11 +17,16 @@
 		    	return {seconds: 0};
 		  	},
 		  	componentDidMount: function() {
+		  		console.log("Tick Tock componentDidMount " + this.props.name);
 		    	this.setInterval(this.tick, 1000); // Call a method on the mixin
 		  	},
 		  	tick: function() {
 		    	this.setState({seconds: this.state.seconds + 1});
 		  	},
+		  	componentWillUnmount: function() {
+	  			console.log("Tick Tock componentWillUnmount " + this.props.name);
+	    		
+	  		},
 		  	render: function() {
 		    	return (
 		      	<p>

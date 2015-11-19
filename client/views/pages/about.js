@@ -1,8 +1,8 @@
-Template.about.rendered = function() {
+Template.about.onRendered(function() {
+	console.log('Template onRendered');
     if(!this._rendered) {
       this._rendered = true;
-      console.log('Template onLoad');
-
+      
       // JSX Style
       //ReactDOM.render(<TickTock />, document.getElementById("container"));
       // JS Style: https://jsfiddle.net/reactjs/5vjqabv3/
@@ -21,7 +21,14 @@ Template.about.rendered = function() {
        		document.getElementById("container3")
        	);
     }
-}
+});
+
+Template.about.onDestroyed(function() {
+	console.log("Template destroyed");
+	ReactDOM.unmountComponentAtNode(document.getElementById("container1"));
+	ReactDOM.unmountComponentAtNode(document.getElementById("container2"));
+	ReactDOM.unmountComponentAtNode(document.getElementById("container3"));
+});
 
   Template.about.events({
     'click .btnOnAmout': function () {  
